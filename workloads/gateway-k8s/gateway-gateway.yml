@@ -1,0 +1,44 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: gateway-gateway
+  namespace: fairenough
+  labels:
+    gateway: gateway-gateway
+    istio: ingressgateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - www.stephanbrunner.xyz
+    - port:
+        number: 80
+        name: http2
+        protocol: HTTP2
+      hosts:
+        - www.stephanbrunner.xyz
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: gateway-gw-virtualservice
+  namespace: fairenough
+  labels:
+    service: gateway-gw-virtualservice
+spec:
+  hosts:
+    - www.stephanbrunner.xyz
+  gateways:
+    - gateway-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: gateway
