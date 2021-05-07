@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: configurations
+  namespace: default
+  labels:
+    app: configurations
+spec:
+  selector:
+    app: configurations
+  ports:
+    - name: http
+      port: 8081
