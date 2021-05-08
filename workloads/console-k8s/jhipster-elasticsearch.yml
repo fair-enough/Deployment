@@ -281,7 +281,7 @@ spec:
                   key: path.logs
           resources:
             requests:
-              memory: '512Mi'
+              memory: '384Mi'
               cpu: '200m'
             limits:
               memory: '1024Mi'
