@@ -80,7 +80,7 @@ spec:
               value: graceful
           resources:
             requests:
-              memory: "384Mi"
+              memory: "512Mi"
               cpu: "500m"
             limits:
               memory: "1Gi"
