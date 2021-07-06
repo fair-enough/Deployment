@@ -85,7 +85,7 @@ spec:
               memory: "512Mi"
               cpu: "500m"
             limits:
-              memory: "Gi"
+              memory: "1Gi"
               cpu: "1"
           ports:
             - name: http
