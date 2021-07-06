@@ -77,7 +77,7 @@ spec:
             - name: SPRING_SLEUTH_PROPAGATION_KEYS
               value: "x-request-id,x-ot-span-context"
             - name: JAVA_OPTS
-              value: " -Xmx256m -Xms256m"
+              value: " -Xmx384m -Xms384m"
             - name: SERVER_SHUTDOWN
               value: graceful
           resources:
@@ -85,7 +85,7 @@ spec:
               memory: "512Mi"
               cpu: "500m"
             limits:
-              memory: "512Mi"
+              memory: "Gi"
               cpu: "1"
           ports:
             - name: http
