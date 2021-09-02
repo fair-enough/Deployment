@@ -46,7 +46,7 @@ spec:
               done
       containers:
         - name: gateway-app
-          image: kidscare8playground/gateway:0.0.9
+          image: kidscare8playground/gateway:0.0.10
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod
