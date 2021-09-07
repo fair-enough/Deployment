@@ -4,7 +4,7 @@ metadata:
   name: gateway
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: gateway
@@ -46,7 +46,7 @@ spec:
               done
       containers:
         - name: gateway-app
-          image: kidscare8playground/gateway:0.0.16
+          image: kidscare8playground/gateway:0.0.17
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod
