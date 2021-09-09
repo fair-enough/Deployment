@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: google-play-api
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: google-play-api
+      version: "v1"
+  template:
+    metadata:
+      labels:
+        app: google-play-api
+        version: "v1"
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - google-play-api
+                topologyKey: kubernetes.io/hostname
+              weight: 100
+      containers:
+        - name: google-play-api-app
+          image: kidscare8playground/google-play-api:latest
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+          ports:
+            - name: http
+              containerPort: 8080
