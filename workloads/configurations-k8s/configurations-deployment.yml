@@ -73,7 +73,9 @@ spec:
             - name: MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED
               value: "true"
             - name: SPRING_SLEUTH_PROPAGATION_KEYS
-              value: "x-request-id,x-ot-span-context"
+              value: "x-request-id,x-ot-span-context"         
+            - name: FAIRENOUGH_ANDROID_APPS_API_BASE_URL
+              value: "http://google-play-api.default.svc.cluster.local:8080/api"  
             - name: JAVA_OPTS
               value: " -Xmx256m -Xms256m"
             - name: SERVER_SHUTDOWN
