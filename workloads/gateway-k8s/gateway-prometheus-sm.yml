@@ -10,5 +10,5 @@ spec:
     matchLabels:
       app: gateway
   endpoints:
-    - port: web
-      path: /prometheusMetrics
+    - targetPort: 8080
+      path: /management/prometheus
