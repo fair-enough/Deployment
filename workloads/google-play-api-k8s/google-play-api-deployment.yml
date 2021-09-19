@@ -29,7 +29,7 @@ spec:
               weight: 100
       containers:
         - name: google-play-api-app
-          image: kidscare8playground/google-play-api:latest
+          image: kidscare8playground/google-play-api:0.0.2
           resources:
             requests:
               memory: "512Mi"
